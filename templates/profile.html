@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+</head>
+<body>
+    <h1>{{ user_data.displayName }}</h1>
+    <h3>Email: {{ user_data.mail }}</h3>
+
+    <form action="{{ url_for('profile') }}" method="post">
+        <label for="phone">Phone Number:</label>
+        <input type="text" id="phone" name="phone" value="{{ user_data.mobilePhone }}" required><br><br>
+        <label for="City">City:</label>
+        <input type="text" id="city" name="city" value="{{ user_data.city }}" required><br><br>
+        <input type="submit" value="Update">
+    </form>
+</body>
+</html>
