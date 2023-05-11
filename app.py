@@ -10,15 +10,17 @@ app.config['SESSION_TYPE'] = 'filesystem'
 app.config["SESSION_PERMANENT"] = False
 Session(app)
 
+tenant_name = 'doitintl.onmicrosoft.com'
+
 oauth = OAuth(app)
 msgraph = oauth.register(
     'msgraph',
     client_id=os.environ['CLIENT_ID'],
     client_secret=os.environ['CLIENT_SECRET'],
-    access_token_url='https://login.microsoftonline.com/doitintl.onmicrosoft.com/oauth2/v2.0/token',
-    authorize_url='https://login.microsoftonline.com/doitintl.onmicrosoft.com/oauth2/v2.0/authorize',
+    access_token_url='https://login.microsoftonline.com/'+ tenant_name +'/oauth2/v2.0/token',
+    authorize_url='https://login.microsoftonline.com/'+ tenant_name +'/oauth2/v2.0/authorize',
     api_base_url='https://graph.microsoft.com/v1.0/',
-    server_metadata_url='https://login.microsoftonline.com/doitintl.onmicrosoft.com/v2.0/.well-known/openid-configuration',
+    server_metadata_url='https://login.microsoftonline.com/'+ tenant_name +'/v2.0/.well-known/openid-configuration',
     client_kwargs={'scope': 'User.Read User.ReadWrite Directory.AccessAsUser.All'},
 )
 
