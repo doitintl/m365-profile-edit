@@ -10,10 +10,27 @@
     <h3>Email: {{ user_data.mail }}</h3>
 
     <form action="{{ url_for('profile') }}" method="post">
-        <label for="phone">Phone Number:</label>
-        <input type="text" id="phone" name="phone" value="{{ user_data.mobilePhone }}" required><br><br>
-        <label for="City">City:</label>
-        <input type="text" id="city" name="city" value="{{ user_data.city }}" required><br><br>
+        <input type="hidden" name="user_id" value="{{ user_data['id'] }}">
+        <label for="country">Country:</label>
+        <input type="text" id="country" name="country" value="{{ user_data.country }}"><br><br>
+        <label for="state">State:</label>
+        <input type="text" id="state" name="state" value="{{ user_data.state }}"><br><br>
+        <label for="city">City:</label>
+        <input type="text" id="city" name="city" value="{{ user_data.city }}"><br><br>
+        <label for="postalCode">Postal code:</label>
+        <input type="text" id="postalCode" name="postalCode" value="{{ user_data.postalCode }}"><br><br>
+        <label for="streetAddress">Street address:</label>
+        <input type="text" id="streetAddress" name="streetAddress" value="{{ user_data.streetAddress }}"><br><br>
+        <label for="companyName">Company name:</label>
+        <input type="text" id="companyName" name="companyName" value="{{ user_data.companyName }}"><br><br>
+        <label for="department">Department:</label>
+        <input type="text" id="department" name="department" value="{{ user_data.department }}"><br><br>
+        <label for="jobTitle">Job title:</label>
+        <input type="text" id="jobTitle" name="jobTitle" value="{{ user_data.jobTitle }}"><br><br>
+        <label for="officeLocation">Office location:</label>
+        <input type="text" id="officeLocation" name="officeLocation" value="{{ user_data.officeLocation }}"><br><br>
+        <label for="mobilePhone">Mobile phone Number:</label>
+        <input type="text" id="mobilePhone" name="mobilePhone" value="{{ user_data.mobilePhone }}"><br><br>
         <input type="submit" value="Update">
     </form>
 </body>
